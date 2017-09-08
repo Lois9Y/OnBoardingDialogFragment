@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">OnBoarding</string>
+    <string name="app_name">RemoteMouse</string>
+    <string name="basic_text">Some Text explaining %1$s</string>
 </resources>
