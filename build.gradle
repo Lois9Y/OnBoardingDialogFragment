@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.1.4-3'
+    ext.realm_version = '3.5.0'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+    }
+}
+apply plugin: 'kotlin'
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        maven { url "https://maven.google.com" }
+    }
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
+ext{
+    //versioning
+//    junitVersion = '4.12'
+//    espressoVersion = '2.2.2'
+    supportLibraryVersion = '26.0.0'
+//    crashlyticsVersion = '2.6.8'
+//    fabricVersion = '1.22.0'
+//    aspectJVersion = '3.0.3'
+//    buildToolsVersion = '26.0.0'
+//    daggerVersion = '2.11'
+    rxJavaVersion = '2.1.0'
+    rxAndroidVersion = '2.0.1'
+    rxBindingVersion = '2.0.0'
+//    playServicesVersion = '11.0.4'
+}
