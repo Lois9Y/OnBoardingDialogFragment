@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="Sell"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        android:includeFontPadding="false"
+
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="the problem"
+        android:textStyle="bold"
+        android:textColor="#272c30"
+        android:textSize="20sp"
+        android:includeFontPadding="false"
+
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="you solve,"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#9d2413"
+        android:includeFontPadding="false"
+
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="not"
+        android:textStyle="bold"
+        android:textColor="#272c30"
+        android:textSize="67sp"
+        android:includeFontPadding="false"
+
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="the"
+        android:textStyle="bold"
+        android:textColor="#9d2413"
+        android:textSize="67sp"
+        android:includeFontPadding="false"
+
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:text="product"
+        android:textColor="#010101"
+        android:textSize="29sp"
+        android:includeFontPadding="false"
+
+    />
+</LinearLayout>

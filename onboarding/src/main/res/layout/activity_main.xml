@@ -14,4 +14,12 @@
         android:layout_centerInParent="true"
         android:text="Basic OnBoarding Dialog"/>
 
+    <Button
+        android:id="@+id/sales_pitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/basic_launch"
+        android:layout_centerInParent="true"
+        android:text="Some Sales Pitch Dialog"/>
+
 </RelativeLayout>

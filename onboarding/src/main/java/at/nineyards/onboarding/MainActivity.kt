@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.support.v7.app.AppCompatActivity
 import at.nineyards.onboarding.fragments.BasicOnboardingFragment
+import at.nineyards.onboarding.fragments.SalesPitchFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -31,6 +32,17 @@ class MainActivity : AppCompatActivity() {
                         R.drawable.ic_three,
                         this@MainActivity.resources.getString(R.string.basic_text,"Page 3 of the onboarding process"))
                 )
+                finishCallback = this@MainActivity::dismissOnBoardingDialog
+                skipCallback = {selectPage(3)}
+                isCancelable = false
+            }
+            showOnBoardingDialog()
+        }
+
+        sales_pitch.setOnClickListener {
+            dialog = OnBoardingDialog().apply {
+                addFragment(SalesPitchFragment.newInstance(this@MainActivity))
+                finishText = "Buy now"
                 finishCallback = this@MainActivity::dismissOnBoardingDialog
             }
             showOnBoardingDialog()
