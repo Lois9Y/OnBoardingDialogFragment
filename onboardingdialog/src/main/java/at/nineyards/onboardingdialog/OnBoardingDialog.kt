@@ -5,7 +5,7 @@
  * Written by Alois Wollersberger <alois.wollersberger@9yards.at> Sep 7, 2017
  */
 
-package at.nineyards.onboarding
+package at.nineyards.onboardingdialog
 
 import android.animation.ArgbEvaluator
 import android.graphics.Color

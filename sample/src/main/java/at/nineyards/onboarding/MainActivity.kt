@@ -1,10 +1,11 @@
 package at.nineyards.onboarding
 
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
 import android.support.v7.app.AppCompatActivity
 import at.nineyards.onboarding.fragments.BasicOnboardingFragment
 import at.nineyards.onboarding.fragments.SalesPitchFragment
+import at.nineyards.onboardingdialog.OnBoardingDialog
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
