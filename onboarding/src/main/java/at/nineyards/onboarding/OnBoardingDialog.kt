@@ -44,10 +44,6 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
     fun addFragment(fragment: Fragment) = fragmentList.add(fragment)
     fun addFragments(fragments : List<Fragment>) =fragmentList.addAll(fragments)
 
-//    var skipButton : Int
-//    var finishButton : Int
-//    fun setSkipButton(resId : Int)
-//    fun setFinishButton(resId : Int)
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater?.inflate(R.layout.dialog_onboarding, container, false)
@@ -64,14 +60,18 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
         startColor = ResourcesCompat.getColor(resources, R.color.primaryColor, null)
         endColor  = ResourcesCompat.getColor(resources, R.color.primaryColor_700, null)
         pagerAdapter = OnBoardingAdapter(childFragmentManager)
+
         view_pager_container?.adapter = pagerAdapter
         view_pager_container?.addOnPageChangeListener(this)
         view_pager_container?.currentItem = 0
         view_pager_container?.setBackgroundResource(R.color.primaryColor)
+
         intro_btn_skip.setOnClickListener { skipCallback?.invoke() }
         skipText?.let { intro_btn_skip.text = it }
+
         intro_btn_finish.setOnClickListener { finishCallback?.invoke() }
         finishText?.let { intro_btn_finish.text = it }
+
         intro_btn_next.setOnClickListener { view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it+1 } }
         onPageSelected(0)
     }
@@ -93,7 +93,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
     override fun onPageSelected(position: Int) {
         intro_btn_next.visibility = if (position+1 == pagerAdapter?.count) View.GONE else View.VISIBLE
         intro_btn_finish.visibility = if (position+1 == pagerAdapter?.count) View.VISIBLE else View.GONE
-        intro_btn_skip.visibility = if (position+1 == pagerAdapter?.count) View.GONE else View.VISIBLE
+        intro_btn_skip.visibility = intro_btn_next.visibility
         if(indicatorList.size > 0) {
             indicatorList.forEach { it.setImageResource(R.drawable.indicator_unselected) }
             indicatorList[position].setImageResource(R.drawable.indicator_selected)
@@ -102,7 +102,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
     private inner class OnBoardingAdapter(fm : FragmentManager):FragmentPagerAdapter(fm){
         override fun getItem(position: Int) =
-                if (position <fragmentList.size) fragmentList[position] else null
+                if (position < fragmentList.size ) fragmentList[position] else null
         override fun getCount(): Int = fragmentList.size
     }
 
