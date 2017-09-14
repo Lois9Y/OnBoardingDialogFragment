@@ -57,8 +57,8 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startColor = ResourcesCompat.getColor(resources, R.color.primaryColor, null)
-        endColor  = ResourcesCompat.getColor(resources, R.color.primaryColor_700, null)
+        startColor = ResourcesCompat.getColor(resources, R.color.primaryColor_600, null)
+        endColor  = ResourcesCompat.getColor(resources, R.color.primaryColor_800, null)
         pagerAdapter = OnBoardingAdapter(childFragmentManager)
 
         view_pager_container?.adapter = pagerAdapter
