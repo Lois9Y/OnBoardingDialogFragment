@@ -64,7 +64,8 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
         view_pager_container?.adapter = pagerAdapter
         view_pager_container?.addOnPageChangeListener(this)
         view_pager_container?.currentItem = 0
-        view_pager_container?.setBackgroundResource(R.color.primaryColor)
+
+        startColor?.let { dialog_container?.setBackgroundColor(it) }
 
         intro_btn_skip.setOnClickListener { skipCallback?.invoke() }
         skipText?.let { intro_btn_skip.text = it }
@@ -85,7 +86,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
         if (position < fragmentList.size - 1 ) {
-            view_pager_container?.setBackgroundColor(argbEvaluator.evaluate((position.toFloat() + positionOffset) / fragmentList.size.toFloat(),
+            dialog_container?.setBackgroundColor(argbEvaluator.evaluate((position.toFloat() + positionOffset) / fragmentList.size.toFloat(),
                     startColor, endColor) as Int)
         }
     }
