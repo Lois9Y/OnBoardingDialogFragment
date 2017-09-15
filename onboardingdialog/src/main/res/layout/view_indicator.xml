@@ -6,5 +6,5 @@
     android:layout_height="8dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    app:srcCompat="@drawable/indicator_unselected" />
+    app:srcCompat="@drawable/indicator" />
 

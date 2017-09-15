@@ -55,7 +55,7 @@
                 <!--android:id="@+id/intro_indicator_0"-->
                 <!--android:layout_width="8dp"-->
                 <!--android:layout_height="8dp"-->
-                <!--android:background="@drawable/indicator_unselected" />-->
+                <!--android:background="@drawable/indicator" />-->
 
 
         </LinearLayout>

@@ -9,6 +9,8 @@ package at.nineyards.onboardingdialog
 
 import android.animation.ArgbEvaluator
 import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.support.v4.app.*
 import android.support.v4.content.res.ResourcesCompat
@@ -96,8 +98,10 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
         intro_btn_finish.visibility = if (position+1 == pagerAdapter?.count) View.VISIBLE else View.GONE
         intro_btn_skip.visibility = intro_btn_next.visibility
         if(indicatorList.size > 0) {
-            indicatorList.forEach { it.setImageResource(R.drawable.indicator_unselected) }
-            indicatorList[position].setImageResource(R.drawable.indicator_selected)
+            startColor?.let {
+                indicatorList.forEach { it.setColorFilter(ResourcesCompat.getColor(resources,R.color.indicatorInActive, null),PorterDuff.Mode.MULTIPLY) }
+                indicatorList[position].setColorFilter(ResourcesCompat.getColor(resources,R.color.indicatorActive, null),PorterDuff.Mode.MULTIPLY)
+            }
         }
     }
 
