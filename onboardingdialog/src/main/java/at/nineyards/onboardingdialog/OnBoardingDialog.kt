@@ -26,8 +26,8 @@ import kotlinx.android.synthetic.main.dialog_onboarding.*
 class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
 
-    private var startColor : Int? = null
-    private var endColor : Int? = null
+    var startColor : Int? = null
+    var endColor : Int? = null
     private var pagerAdapter : FragmentPagerAdapter? = null
 
     private val fragmentList = mutableListOf<Fragment>()
@@ -57,8 +57,8 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startColor = ResourcesCompat.getColor(resources, R.color.primaryColor_600, null)
-        endColor  = ResourcesCompat.getColor(resources, R.color.primaryColor_800, null)
+        if(startColor == null ) startColor = ResourcesCompat.getColor(resources, R.color.primaryColor_600, null)
+        if(endColor == null ) endColor  = ResourcesCompat.getColor(resources, R.color.primaryColor_800, null)
         pagerAdapter = OnBoardingAdapter(childFragmentManager)
 
         view_pager_container?.adapter = pagerAdapter
