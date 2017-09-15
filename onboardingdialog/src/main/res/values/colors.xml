@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <color name="primaryColor_100">#cfd8dc</color>
-        <color name="primaryColor_300">#90a4ae</color>
+        <color name="primaryColor_100">#36FFFFFF</color>
+        <color name="primaryColor_300">#ACFFFFFF</color>
         <color name="primaryColor">#607d8b</color>
         <color name="primaryColor_600">#546e7a</color>
         <color name="primaryColor_800">#37474f</color>
