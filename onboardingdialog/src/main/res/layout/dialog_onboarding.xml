@@ -39,6 +39,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:text="Skip"
+            android:textAllCaps="true"
             android:textColor="@android:color/white" />
 
         <LinearLayout
@@ -67,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-
+            android:textAllCaps="true"
             android:text="Finish"
             android:textColor="@android:color/white"
             android:visibility="gone" />
