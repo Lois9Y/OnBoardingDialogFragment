@@ -41,6 +41,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
     var skipText: String? = null
     var finishText: String? = null
 
+    var fullScreen = false
 
     fun clearFragments() = fragmentList.clear()
     fun addFragment(fragment: Fragment) = fragmentList.add(fragment)
@@ -77,6 +78,12 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
         intro_btn_next.setOnClickListener { view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it+1 } }
         onPageSelected(0)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(fullScreen)
+            dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
     }
 
     fun selectPage(position : Int){
