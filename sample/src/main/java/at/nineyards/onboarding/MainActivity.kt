@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 addFragment(SalesPitchFragment.newInstance(this@MainActivity))
                 finishText = "Buy now"
                 finishCallback = this@MainActivity::dismissOnBoardingDialog
+                fullScreen = true
             }
             showOnBoardingDialog()
         }

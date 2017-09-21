@@ -80,6 +80,12 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
         onPageSelected(0)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (fullScreen)
+            setStyle(DialogFragment.STYLE_NORMAL,R.style.fullscreen_dialog)
+    }
+
     override fun onStart() {
         super.onStart()
         if(fullScreen)
