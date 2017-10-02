@@ -50,8 +50,9 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater?.inflate(R.layout.dialog_onboarding, container, false)
-        val indicatorContainer = v?.findViewById<LinearLayout>(R.id.indicator_container)
-        indicatorContainer?.let {
+        val indicatorContainer = v?.findViewById(R.id.indicator_container)
+
+        (indicatorContainer as LinearLayout).let {
             if(fragmentList.size > 1)
                 for (i in 0 until fragmentList.size) { addIndicator(indicatorContainer, i) }
         }
