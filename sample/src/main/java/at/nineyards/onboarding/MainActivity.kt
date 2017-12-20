@@ -35,8 +35,9 @@ class MainActivity : AppCompatActivity() {
                 )
                 finishCallback = this@MainActivity::dismissOnBoardingDialog
                 skipCallback = {selectPage(3)}
+                skipText = "SKIP"
                 isCancelable = false
-                nextText = "NEXT"
+                //nextText = "NEXT"
             }
             showOnBoardingDialog()
         }

@@ -74,8 +74,12 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
         startColor?.let { dialog_container?.setBackgroundColor(it) }
 
-        intro_btn_skip.setOnClickListener { skipCallback?.invoke() }
-        skipText?.let { intro_btn_skip.text = it }
+        if(skipText != null) {
+            intro_btn_skip.setOnClickListener { skipCallback?.invoke() }
+            skipText?.let { intro_btn_skip.text = it }
+        } else {
+            intro_btn_skip.visibility = View.GONE
+        }
 
         intro_btn_finish.setOnClickListener { finishCallback?.invoke() }
         finishText?.let { intro_btn_finish.text = it }
