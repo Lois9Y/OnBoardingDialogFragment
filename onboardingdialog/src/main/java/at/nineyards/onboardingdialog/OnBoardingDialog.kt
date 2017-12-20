@@ -8,6 +8,8 @@
 package at.nineyards.onboardingdialog
 
 import android.animation.ArgbEvaluator
+import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.PorterDuff
@@ -40,6 +42,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
     var skipCallback : (()-> Unit)? = null
     var skipText: String? = null
     var finishText: String? = null
+    var nextText: String? = null
 
     var fullScreen = false
 
@@ -77,7 +80,15 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
         intro_btn_finish.setOnClickListener { finishCallback?.invoke() }
         finishText?.let { intro_btn_finish.text = it }
 
-        intro_btn_next.setOnClickListener { view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it+1 } }
+        if(nextText!= null){
+            intro_btn_next_text.text = nextText
+            intro_btn_next_text.visibility = View.VISIBLE
+            intro_btn_next.visibility = View.GONE
+            intro_btn_next_text.setOnClickListener { view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it+1 } }
+        } else {
+            intro_btn_next.setOnClickListener { view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it + 1 } }
+        }
+
         onPageSelected(0)
     }
 
@@ -108,9 +119,13 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
     }
 
     override fun onPageSelected(position: Int) {
-        intro_btn_next.visibility = if (position+1 == pagerAdapter?.count) View.GONE else View.VISIBLE
+        if(nextText!= null){
+            intro_btn_next_text.visibility = if (position+1 == pagerAdapter?.count) View.GONE else View.VISIBLE
+        } else {
+            intro_btn_next.visibility = if (position + 1 == pagerAdapter?.count) View.GONE else View.VISIBLE
+        }
         intro_btn_finish.visibility = if (position+1 == pagerAdapter?.count) View.VISIBLE else View.GONE
-        intro_btn_skip.visibility = intro_btn_next.visibility
+        skipText?.let { intro_btn_skip.visibility = if (position + 1 == pagerAdapter?.count) View.GONE else View.VISIBLE }
         if(indicatorList.size > 0) {
             startColor?.let {
                 indicatorList.forEach { it.setColorFilter(ResourcesCompat.getColor(resources,R.color.indicatorInActive, null),PorterDuff.Mode.MULTIPLY) }
