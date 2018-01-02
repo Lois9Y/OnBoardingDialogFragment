@@ -34,7 +34,7 @@ ext{
 //    crashlyticsVersion = '2.6.8'
 //    fabricVersion = '1.22.0'
 //    aspectJVersion = '3.0.3'
-//    buildToolsVersion = '26.0.0'
+    buildToolsVersion = '27.0.2'
 //    daggerVersion = '2.11'
     rxJavaVersion = '2.1.0'
     rxAndroidVersion = '2.0.1'
