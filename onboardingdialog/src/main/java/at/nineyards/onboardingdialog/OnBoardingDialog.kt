@@ -40,6 +40,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
     var finishCallback : (()-> Unit)? = null
     var skipCallback : (()-> Unit)? = null
+    var pageSelectedCallback : ((Int) -> Unit)? = null
     var skipText: String? = null
     var finishText: String? = null
     var nextText: String? = null
@@ -135,6 +136,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
                 indicatorList.forEach { it.setColorFilter(ResourcesCompat.getColor(resources,R.color.indicatorInActive, null),PorterDuff.Mode.MULTIPLY) }
                 indicatorList[position].setColorFilter(ResourcesCompat.getColor(resources,R.color.indicatorActive, null),PorterDuff.Mode.MULTIPLY)
             }
+            pageSelectedCallback?.invoke(position)
         }
     }
 
