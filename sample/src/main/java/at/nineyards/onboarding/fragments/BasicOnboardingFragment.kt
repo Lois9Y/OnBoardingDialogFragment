@@ -18,10 +18,10 @@ class BasicOnboardingFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_basic_onboarding, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        basic_image.setImageResource(arguments.getInt("imageResId"))
-        basic_text.text = arguments.getString("text")
+        arguments?.getInt("imageResId")?.let { basic_image.setImageResource(it) }
+        arguments?.getString("text")?.let { basic_text.text = it }
     }
 
     companion object {

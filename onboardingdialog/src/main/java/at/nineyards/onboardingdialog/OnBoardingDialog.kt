@@ -51,10 +51,9 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
     fun addFragment(fragment: Fragment) = fragmentList.add(fragment)
     fun addFragments(fragments : List<Fragment>) =fragmentList.addAll(fragments)
 
-
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater?.inflate(R.layout.dialog_onboarding, container, false)
-        val indicatorContainer = v?.findViewById(R.id.indicator_container)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val v = inflater.inflate(R.layout.dialog_onboarding, container, false)
+        val indicatorContainer = v?.findViewById<LinearLayout>(R.id.indicator_container)
 
         (indicatorContainer as LinearLayout).let {
             if(fragmentList.size > 1)
@@ -63,7 +62,7 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
         return v
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if(startColor == null ) startColor = ResourcesCompat.getColor(resources, R.color.primaryColor_600, null)
         if(endColor == null ) endColor  = ResourcesCompat.getColor(resources, R.color.primaryColor_800, null)
