@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                         this@MainActivity.resources.getString(R.string.basic_text,"Page 3 of the onboarding process"))
                 )
                 finishCallback = this@MainActivity::dismissOnBoardingDialog
-                skipCallback = {selectPage(3)}
+                skipCallback = {skip()}
                 skipText = "SKIP"
                 isCancelable = false
                 //nextText = "NEXT"
