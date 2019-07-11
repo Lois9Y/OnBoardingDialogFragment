@@ -42,8 +42,12 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
     var skipCallback : (()-> Unit)? = null
     var pageSelectedCallback : ((Int) -> Unit)? = null
     var skipText: String? = null
+    var isSkipVisible = true
     var finishText: String? = null
+    var isFinishVisible = true
     var nextText: String? = null
+    var isNextVisible = true
+    var isSeparatorVisible = true
 
     var fullScreen = false
 
@@ -88,9 +92,9 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
             intro_btn_next_text.text = nextText
             intro_btn_next_text.visibility = View.VISIBLE
             intro_btn_next.visibility = View.GONE
-            intro_btn_next_text.setOnClickListener { view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it+1 } }
+            intro_btn_next_text.setOnClickListener { next() }
         } else {
-            intro_btn_next.setOnClickListener { view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it + 1 } }
+            intro_btn_next.setOnClickListener { next() }
         }
 
         onPageSelected(0)
@@ -110,6 +114,14 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
 
     fun selectPage(position : Int){
         view_pager_container?.currentItem = position
+    }
+
+    fun skip(){
+        view_pager_container.currentItem = fragmentList.size - 1
+    }
+
+    fun next(){
+        view_pager_container?.currentItem?.let { view_pager_container?.currentItem = it+1 }
     }
 
     override fun onPageScrollStateChanged(state: Int) {
@@ -136,6 +148,23 @@ class OnBoardingDialog : DialogFragment() , ViewPager.OnPageChangeListener{
                 indicatorList[position].setColorFilter(ResourcesCompat.getColor(resources,R.color.indicatorActive, null),PorterDuff.Mode.MULTIPLY)
             }
             pageSelectedCallback?.invoke(position)
+        }
+
+        if(!isNextVisible){
+            intro_btn_next.visibility = View.GONE
+            intro_btn_next_text.visibility = View.GONE
+        }
+
+        if(!isSkipVisible){
+            intro_btn_skip.visibility = View.GONE
+        }
+
+        if(!isFinishVisible){
+            intro_btn_finish.visibility = View.GONE
+        }
+
+        if(!isSeparatorVisible){
+            separator.visibility = View.GONE
         }
     }
 
